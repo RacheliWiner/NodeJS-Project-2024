@@ -4,13 +4,13 @@ import mongoose from "mongoose";
 // Define a schema
 const Schema = mongoose.Schema;
 
-const PrioritiesSchema = new Schema({
+const StreetsSchema = new Schema({
     id: int,
     name: String
 });
 
 
 // Compile model from schema
-const PrioritiesModel = mongoose.model("students", PrioritiesSchema);
+const StreetsModel = mongoose.model("students", StreetsSchema);
 
-export default PrioritiesModel;
+export default StreetsModel;
