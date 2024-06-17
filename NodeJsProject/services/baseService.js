@@ -3,7 +3,7 @@ class BaseService {
         this.repo = repo;
     }
 
-    async getAll() {
+    async get() {
         return this.repo.getAll();
         // try {
         //   const response = await this.service.getList(req.query);
@@ -14,7 +14,7 @@ class BaseService {
         // }
       }
     
-      async get(id) {
+      async getById(id) {
         // const { id } = req.params;
         // try {
         //   const response = await this.service.getById(id);
