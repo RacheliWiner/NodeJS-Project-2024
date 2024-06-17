@@ -3,8 +3,8 @@ class BaseService {
         this.repo = repo;
     }
 
-    async get() {
-        return this.repo.getAll();
+    async get(query) {
+        return this.repo.get();
         // try {
         //   const response = await this.service.getList(req.query);
         //   return res.status(response.statusCode).json(response);
@@ -15,6 +15,7 @@ class BaseService {
       }
     
       async getById(id) {
+        return this.repo.getById();
         // const { id } = req.params;
         // try {
         //   const response = await this.service.getById(id);
@@ -46,16 +47,7 @@ class BaseService {
         // }
       }
     
-      async delete(id) {
-        // const { id } = req.params;
-        // try {
-        //   const response = await this.service.delete(id);
-        //   return res.status(response.statusCode).json(response);
-        // }
-        // catch (e) {
-        //   next(e);
-        // }
-      }
+
 
 }
 
