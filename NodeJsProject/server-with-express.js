@@ -26,7 +26,7 @@
 
 // //connect = 'mongodb+srv://rachel:rv0583296769@nodejs.gxdkmxj.mongodb.net/?retryWrites=true&w=majority&appName=NodeJS'
 
-import { config as configDotenv } from 'dotenv';
+import { configDotenv } from 'dotenv';
 import express from 'express';
 import helpRequestRouter from './src/routers/HelpRequestRouter.js';
 import volunteerRouter from './src/routers/VolunteersRouter.js';
