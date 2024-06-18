@@ -17,4 +17,4 @@ class VolunteerService extends BaseService{
     }
 }
 
-export default VolunteerService;
+export default new VolunteerService(VolunteerRepo);

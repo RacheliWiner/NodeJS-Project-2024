@@ -18,4 +18,4 @@ class HelpRequestService extends BaseService {
 
 }
 
-export default HelpRequestService;
+export default new HelpRequestService(RequestRepo);

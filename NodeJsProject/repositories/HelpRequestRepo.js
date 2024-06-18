@@ -1,5 +1,6 @@
 //const BaseRepo = require('./BaseRepo');
 // import VolunteersModel from "../models/volunteersModel";
+import connect from "./db.js";
 import BaseRepo from "./BaseRepo.js";
 import HelpRequestModel from "../models/helpRequestModel.js";
 

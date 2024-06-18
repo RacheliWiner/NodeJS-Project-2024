@@ -3,10 +3,10 @@ import requestController from '../controllers/HelpRequestController.js';
 
 const router = express.Router();
 
-router.get('/', requestController.getAll);
+router.get('/', requestController.get);
 
-router.get('/:id', requestController.getById);
+//router.get('/:id', requestController.getById);
 
-router.put('/:id', requestController.update);
+//router.put('/:id', requestController.update);
 
 export default router;

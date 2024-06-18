@@ -3,13 +3,13 @@ import autoBind from "auto-bind";
 class BaseController {
     constructor(service) {
         this.service = service;
-        //autoBind(this);
+        autoBind(this);
     }
 
     async get(req, res, next) {
         try {
-            // const response = await this.service.getAll(req.query);
-            const response = await this.service.getAll(req);
+            const response = await this.service.get(req.query);
+            // const response = await this.service.get(req);
             //to do  - status code accoring to result
             return res.status(200).json(response);
         }

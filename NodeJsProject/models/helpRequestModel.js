@@ -1,10 +1,11 @@
-// Require Mongoose
+
 import mongoose from "mongoose";
+
 
 // Define a schema
 const Schema = mongoose.Schema;
 
-const HelpRequestsSchema = new Schema({
+const helpRequestsSchema = new Schema({
     id: Number,
     description: String,
     locationCode: Number,
@@ -17,6 +18,6 @@ const HelpRequestsSchema = new Schema({
 
 
 // Compile model from schema
-const HelpRequestsModel = mongoose.model("helpRequests", HelpRequestsSchema);
+const HelpRequestsModel = mongoose.model("helpRequests", helpRequestsSchema);
 
 export default HelpRequestsModel;

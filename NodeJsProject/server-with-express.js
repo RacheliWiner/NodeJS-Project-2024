@@ -1,24 +1,17 @@
-//require('dotenv').config();
 import { configDotenv } from 'dotenv';
-configDotenv()
-//const express = require('express');
 import  express  from 'express';
-const app = express();
-
-
-//const studentsRouter = require('./routers/StudentsRouter');
-//const coursesRouter = require('./routers/CoursesRouter');
-import helpRequestRouter from './routers/RequestRouter.js'
+import helpRequestRouter from './routers/HelpRequestRouter.js'
 import volunteerRouter from './routers/VolunteerRouter.js'
-// import helpRequestRouter from './routers/RequestRouter.js';
-// import volunteerRouter from './routers/VolunteerRouter.js';
-// const hostname = process.env.HOST_NAME;//'127.0.0.1';//localhost
-const hostname = '127.0.0.1';
-const port = process.env.PORT || 3000;
 
-app.use(express.json());//will extract data from body - so we don't ned to register to 'data' and 'end' events
+configDotenv()
+const app = express();
+ const hostname = process.env.HOST_NAME;//'127.0.0.1';//localhost
+//const hostname = '127.0.0.1';
+const port = process.env.PORT || 3001;
 
 
+
+app.use(express.json());//will extract data from body - so we don't need to register to 'data' and 'end' events
 app.use('/api/requests', helpRequestRouter);
 app.use('/api/volunterr', volunteerRouter);
 app.use('/', (req, res) => {
@@ -31,5 +24,4 @@ app.listen(port, hostname, () => {
 })
 
 
-//con = 'mongodb+srv://rachel:rv0583296769@nodejs.gxdkmxj.mongodb.net/?retryWrites=true&w=majority&appName=NodeJS'
-
+//connect = 'mongodb+srv://rachel:rv0583296769@nodejs.gxdkmxj.mongodb.net/?retryWrites=true&w=majority&appName=NodeJS'

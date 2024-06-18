@@ -7,7 +7,12 @@ class BaseRepo {
     }
 
     async get(query) {
-        return this.model.find({}).exec();
+        try{
+        return this.model.find({}).exec();}
+        catch (err) {
+            console.err('Error fetching data ', err);
+            throw error;
+          }
     }
 
 
@@ -19,10 +24,10 @@ class BaseRepo {
                 error.statusCode = 404;
                 throw error;
             }
-
-            return new HttpResponse(item);
-        } catch (errors) {
-            throw errors;
+            return item;
+            //return new HttpResponse(item);
+        } catch (err) {
+            throw err;
         }
     }
 
