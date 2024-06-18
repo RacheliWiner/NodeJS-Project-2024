@@ -16,4 +16,4 @@ class volunteerController extends BaseController{
         }
     }
 }
-export default new volunteerController;
+export default new volunteerController(VolunteerService);

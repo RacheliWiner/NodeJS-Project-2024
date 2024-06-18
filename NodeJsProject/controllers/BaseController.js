@@ -3,7 +3,7 @@ import autoBind from "auto-bind";
 class BaseController {
     constructor(service) {
         this.service = service;
-        autoBind(this);
+        //autoBind(this);
     }
 
     async get(req, res, next) {

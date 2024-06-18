@@ -18,4 +18,4 @@ class HelpRequestController extends BaseController{
     }
 }
 
-export default new HelpRequestController;
+export default new HelpRequestController(HelpRequestService);
