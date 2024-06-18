@@ -1,3 +1,4 @@
+
 import autoBind from "auto-bind";
 
 class BaseController {
@@ -6,16 +7,12 @@ class BaseController {
         autoBind(this);
     }
 
-    async get(req, res, next) {
+    async getAll(req, res, next) {
         try {
-            const response = await this.service.get(req.query);
-            // const response = await this.service.get(req);
-            //to do  - status code accoring to result
+            const response = await this.service.getAll(req.query);
             return res.status(200).json(response);
-        }
-        catch (e) {
-            res.status(500).json({e:e.message});
-            //next(e);
+        } catch (e) {
+            res.status(500).json({ e: e.message });
         }
     }
 
@@ -23,16 +20,11 @@ class BaseController {
         const { id } = req.params;
         try {
             const response = await this.service.getById(id);
-            return res.status(response.statusCode).json(response);
-        }
-        catch (e) {
-            next(e);
+            return res.status(200).json(response);
+        } catch (e) {
+            res.status(500).json({ e: e.message });
         }
     }
-
-    
 }
-
-// module.exports = BaseController;
 
 export default BaseController;
