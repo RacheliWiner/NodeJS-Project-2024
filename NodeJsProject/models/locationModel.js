@@ -13,6 +13,6 @@ const LocationSchema = new Schema({
 
 
 // Compile model from schema
-const LocationsModel = mongoose.model("students", LocationSchema);
+const LocationsModel = mongoose.model("locations", LocationSchema);
 
 export default LocationsModel;

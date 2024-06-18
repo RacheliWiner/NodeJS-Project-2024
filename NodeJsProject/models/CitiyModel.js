@@ -11,6 +11,6 @@ const CitiesSchema = new Schema({
 
 
 // Compile model from schema
-const CitiesModel = mongoose.model("students", CitiesSchema);
+const CitiesModel = mongoose.model("cities", CitiesSchema);
 
 export default CitiesModel;

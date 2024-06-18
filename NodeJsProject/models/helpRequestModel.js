@@ -17,6 +17,6 @@ const HelpRequestsSchema = new Schema({
 
 
 // Compile model from schema
-const HelpRequestsModel = mongoose.model("students", HelpRequestsSchema);
+const HelpRequestsModel = mongoose.model("helpRequests", HelpRequestsSchema);
 
 export default HelpRequestsModel;

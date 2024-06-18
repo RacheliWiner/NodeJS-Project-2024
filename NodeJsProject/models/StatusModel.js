@@ -11,6 +11,6 @@ const StatusesSchema = new Schema({
 
 
 // Compile model from schema
-const StatusesModel = mongoose.model("students", StatusesSchema);
+const StatusesModel = mongoose.model("statuses", StatusesSchema);
 
 export default StatusesModel;

@@ -1,6 +1,7 @@
 {
   "name": "nodejsproject",
   "version": "1.0.0",
+  "type":"module",
   "description": "",
   "main": "server-with-express.js",
   "scripts": {

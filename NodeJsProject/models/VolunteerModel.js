@@ -12,6 +12,6 @@ const VolunteersSchema = new Schema({
 
 
 // Compile model from schema
-const VolunteersModel = mongoose.model("students", VolunteersSchema);
+const VolunteersModel = mongoose.model("volenteers", VolunteersSchema);
 
 export default VolunteersModel;

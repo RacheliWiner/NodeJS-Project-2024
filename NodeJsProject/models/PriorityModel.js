@@ -11,6 +11,6 @@ const PrioritiesSchema = new Schema({
 
 
 // Compile model from schema
-const PrioritiesModel = mongoose.model("students", PrioritiesSchema);
+const PrioritiesModel = mongoose.model("priorities", PrioritiesSchema);
 
 export default PrioritiesModel;
