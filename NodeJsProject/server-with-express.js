@@ -27,3 +27,6 @@ app.listen(port, hostname, () => {
     console.log(`Server running at http://${hostname}:${port}/`);
 })
 
+
+//con = 'mongodb+srv://rachel:rv0583296769@nodejs.gxdkmxj.mongodb.net/?retryWrites=true&w=majority&appName=NodeJS'
+

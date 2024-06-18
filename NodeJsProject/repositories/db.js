@@ -10,7 +10,7 @@ mongoose.set("strictQuery", false);
 export default async function connect() {
     //priority - will work only in seminar
     //if you have school database at home, you can change priority to localhost
-    await mongoose.connect("mongodb://priority:27017/Racheli&Shira_NodeJs"/*process.env.CONN_STRING*/);
+    await mongoose.connect("mongodb+srv://rachel:rv0583296769@nodejs.gxdkmxj.mongodb.net/?retryWrites=true&w=majority&appName=NodeJS"/*process.env.CONN_STRING*/);
 };
 
 
