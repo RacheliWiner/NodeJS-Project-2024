@@ -5,7 +5,7 @@ import mongoose from "mongoose";
 const Schema = mongoose.Schema;
 
 const LocationSchema = new Schema({
-    id: int,
+    id: Number,
     cityCode: Number,
     steetCode: Number,
     numberCode: Number
@@ -13,6 +13,6 @@ const LocationSchema = new Schema({
 
 
 // Compile model from schema
-const LocationsModel = mongoose.model("locations", LocationSchema);
+const LocationsModel = mongoose.model('locations', LocationSchema);
 
 export default LocationsModel;

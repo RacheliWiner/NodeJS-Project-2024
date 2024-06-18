@@ -28,8 +28,8 @@
 
 import { config as configDotenv } from 'dotenv';
 import express from 'express';
-import helpRequestRouter from './routers/HelpRequestRouter.js';
-import volunteerRouter from './routers/VolunteerRouter.js';
+import helpRequestRouter from './src/routers/HelpRequestRouter.js';
+import volunteerRouter from './src/routers/VolunteersRouter.js';
 
 configDotenv();
 
