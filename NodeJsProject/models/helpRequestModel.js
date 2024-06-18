@@ -5,14 +5,14 @@ import mongoose from "mongoose";
 const Schema = mongoose.Schema;
 
 const HelpRequestsSchema = new Schema({
-    id: int,
+    id: Number,
     description: String,
-    locationCode: int,
+    locationCode: Number,
     phone: String,
-    NumberOfPortions: int,
-    statusCode: int,
-    priorityCode: int,
-    volunteerCode: int
+    NumberOfPortions: Number,
+    statusCode: Number,
+    priorityCode: Number,
+    volunteerCode: Number
 });
 
 

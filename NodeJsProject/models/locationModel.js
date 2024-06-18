@@ -6,9 +6,9 @@ const Schema = mongoose.Schema;
 
 const LocationSchema = new Schema({
     id: int,
-    cityCode: int,
-    steetCode: int,
-    numberCode: int
+    cityCode: Number,
+    steetCode: Number,
+    numberCode: Number
 });
 
 

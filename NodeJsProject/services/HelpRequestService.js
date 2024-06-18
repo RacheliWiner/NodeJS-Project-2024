@@ -17,3 +17,5 @@ class HelpRequestService extends BaseService {
     }
 
 }
+
+export default HelpRequestService;

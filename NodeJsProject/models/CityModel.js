@@ -5,7 +5,7 @@ import mongoose from "mongoose";
 const Schema = mongoose.Schema;
 
 const CitiesSchema = new Schema({
-    id: int,
+    id: Number,
     name: String
 });
 

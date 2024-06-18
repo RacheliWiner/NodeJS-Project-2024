@@ -5,7 +5,7 @@ import mongoose from "mongoose";
 const Schema = mongoose.Schema;
 
 const VolunteersSchema = new Schema({
-    id: int,
+    id: Number,
     firstName: String,
     lastName: String
 });
