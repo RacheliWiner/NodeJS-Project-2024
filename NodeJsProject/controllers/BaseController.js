@@ -8,12 +8,14 @@ class BaseController {
 
     async get(req, res, next) {
         try {
-            const response = await this.service.getAll(req.query);
+            // const response = await this.service.getAll(req.query);
+            const response = await this.service.getAll(req);
             //to do  - status code accoring to result
             return res.status(200).json(response);
         }
         catch (e) {
-            next(e);
+            res.status(500).json({e:e.message});
+            //next(e);
         }
     }
 
@@ -21,27 +23,6 @@ class BaseController {
         const { id } = req.params;
         try {
             const response = await this.service.getById(id);
-            return res.status(response.statusCode).json(response);
-        }
-        catch (e) {
-            next(e);
-        }
-    }
-
-    async insert(req, res, next) {
-        try {
-            const response = await this.service.insert(req.body);
-            return res.status(response.statusCode).json(response);
-        }
-        catch (e) {
-            next(e);
-        }
-    }
-
-    async update(req, res, next) {
-        const { id } = req.params;
-        try {
-            const response = await this.service.update(id, req.body);
             return res.status(response.statusCode).json(response);
         }
         catch (e) {
