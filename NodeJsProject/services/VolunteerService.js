@@ -1,5 +1,5 @@
-import BaseService from "./baseService";
-import VolunteerRepo from "../repositories/VolunteerRepo";
+import BaseService from "./baseService.js";
+import VolunteerRepo from "../repositories/VolunteerRepo.js";
 
 class VolunteerService extends BaseService{
     constructor(VolunteerRepo){

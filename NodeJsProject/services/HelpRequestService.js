@@ -1,5 +1,5 @@
-import BaseService from "./baseService";
-import RequestRepo from "../repositories/HelpRequestRepo"
+import BaseService from "./baseService.js";
+import RequestRepo from "../repositories/HelpRequestRepo.js"
 
 class HelpRequestService extends BaseService {
     constructor(RequestRepo) {
