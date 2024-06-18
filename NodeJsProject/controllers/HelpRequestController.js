@@ -1,5 +1,6 @@
-import BaseController from "./BaseController";
-import HelpRequestService from "../services/HelpRequestService"
+// import BaseController from "./BaseController";
+import BaseController from './BaseController.js';
+import HelpRequestService from "../services/HelpRequestService.js"
 
 class HelpRequestController extends BaseController{
     constructor(HelpRequestService){

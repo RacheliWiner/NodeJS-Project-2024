@@ -1,5 +1,5 @@
-import BaseController from "./BaseController";
-import VolunteerService from "../repositories/VolunteerRepo";
+import BaseController from "./BaseController.js";
+import VolunteerService from "../repositories/VolunteerRepo.js";
 
 class volunteerController extends BaseController{
     constructor(VolunteerService){
