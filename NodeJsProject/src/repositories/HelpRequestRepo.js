@@ -1,16 +1,12 @@
 import connect from '../../config/db.js';
 import model from '../models/HelpRequestModel.js';
 
-
 class HelpRequestRepo {
 
   constructor(model) {
     this.model = model;
     connect();
   }
-
-
-
 
   async getAll(filters = {}) {
     try {
@@ -22,11 +18,11 @@ class HelpRequestRepo {
             'foreignField': '_id',
             'as': 'location_info'
           }
-        },{
+        }, {
           '$unwind': {
             'path': '$location_info'
           }
-        } ,{
+        }, {
           '$lookup': {
             'from': 'Cities',
             'localField': 'location_info.cityCode',
@@ -37,7 +33,7 @@ class HelpRequestRepo {
           '$unwind': {
             'path': '$location_info.city_info'
           }
-        },{
+        }, {
           '$lookup': {
             'from': 'Streets',
             'localField': 'location_info.streetCode',
@@ -48,7 +44,7 @@ class HelpRequestRepo {
           '$unwind': {
             'path': '$location_info.street_info'
           }
-        },{
+        }, {
           '$lookup': {
             'from': 'Statuses',
             'localField': 'statusCode',
@@ -59,14 +55,14 @@ class HelpRequestRepo {
           '$unwind': {
             'path': '$status_info'
           }
-        },{
+        }, {
           '$lookup': {
             'from': 'Priorities',
             'localField': 'priorityCode',
             'foreignField': '_id',
             'as': 'priority_info'
           }
-        },  {
+        }, {
           '$unwind': {
             'path': '$priority_info'
           }
@@ -128,6 +124,7 @@ class HelpRequestRepo {
       throw (errors);
     }
   }
+  
   async update(id, item) {
     try {
       let result = await this.model.findByIdAndUpdate(Number(id), item);
@@ -137,11 +134,6 @@ class HelpRequestRepo {
       throw new Error('it is not possible to update, please try again');
     }
   }
-
-
-
 }
-
-
 
 export default new HelpRequestRepo(model);

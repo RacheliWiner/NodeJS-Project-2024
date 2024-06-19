@@ -5,11 +5,12 @@ class VolunteersRepo {
     constructor(model) {
         this.model = model;
         connect();
-
     }
+
     async getAll() {
         return this.model.find({}).exec();
     }
+
     async getById(id) {
         try {
             let item = await this.model.findById(id);
@@ -24,6 +25,7 @@ class VolunteersRepo {
             throw (errors);
         }
     }
+
     async add(item) {
         try {
             let vol = await this.model.create(item);
@@ -35,4 +37,5 @@ class VolunteersRepo {
         }
     }
 }
+
 export default new VolunteersRepo(model);

@@ -1,4 +1,5 @@
 export default function myPipeline(query) {
+
   const pipeline = [
     {
       '$lookup': {
@@ -31,7 +32,7 @@ export default function myPipeline(query) {
       }
     }, {
       '$unwind': {
-        'path': 'location_info.street_info'
+        'path': '$location_info.street_info'
       }
     }, {
       '$lookup': {
