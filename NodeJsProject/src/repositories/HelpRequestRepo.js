@@ -70,14 +70,16 @@ class HelpRequestRepo {
           '$addFields': {
             'city': '$location_info.city_info.name',
             'street': '$location_info.street_info.name',
-            'number': '$location_info.number',
-            'importance': '$priority_info.name',
+            'number': '$location_info.numberCode',
+            'priority': '$priority_info.name',
             'status': '$status_info.name'
           }
         }, {
           '$project': {
-            'location': 0,
+            '_id':0,
+            'Location': 0,
             'location_info': 0,
+            'volunteerCode':0,
             'status_info': 0,
             'priority_info': 0
           }
