@@ -87,14 +87,26 @@ class HelpRequestRepo {
 
 
 
-    async getAll() {
-      try {
-          const helpRequests = await HelpRequest.find({});
-          return helpRequests;
-      } catch (error) {
-          throw new Error('Error fetching help requests');
-      }
-  }
+  //   async getAll() {
+  //     try {
+  //         const helpRequests = await HelpRequest.find({});
+  //         return helpRequests;
+  //     } catch (error) {
+  //         throw new Error('Error fetching help requests');
+  //     }
+  // }
+
+  async getAll() {
+    try {
+        console.log("Attempting to fetch help requests");
+        const requests = await HelpRequest.find();
+        console.log("Successfully fetched help requests");
+        return requests;
+    } catch (error) {
+        console.error("Error fetching help requests:", error);
+        throw new Error('Error fetching help requests');
+    }
+}
     // try {
     //   const ourPipeline = [
     //     {

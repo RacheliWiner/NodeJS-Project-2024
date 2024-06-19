@@ -8,6 +8,7 @@ class BaseService{
     async getAll(){
         return await this.repo.getAll();
     }
+    
     async getById(id){
         return await this.repo.getById(id);
     }
