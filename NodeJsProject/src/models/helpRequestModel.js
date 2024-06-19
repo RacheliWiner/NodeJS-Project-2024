@@ -11,5 +11,5 @@ const helpRequestSchema = new Schema({
     priorityCode: Number,
     volunteerCode: Number
 });
-const helpRequestModel = mongoose.model('helpRequests', helpRequestSchema);
+const helpRequestModel = mongoose.model('helpRequests', helpRequestSchema,'helpRequest');
 export default helpRequestModel;

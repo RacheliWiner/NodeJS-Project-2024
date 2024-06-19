@@ -14,76 +14,97 @@ class HelpRequestRepo {
 
   async getAll(filters) {
     try {
-      const ourPipeline = []
-      // const ourPipeline = [
-      //   {
-      //     '$lookup': {
-      //       'from': 'location',
-      //       'localField': 'location',
-      //       'foreignField': '_id',
-      //       'as': 'location_info'
-      //     }
-      //   }, {
-      //     '$lookup': {
-      //       'from': 'status',
-      //       'localField': 'status',
-      //       'foreignField': '_id',
-      //       'as': 'status_info'
-      //     }
-      //   }, {
-      //     '$lookup': {
-      //       'from': 'priority',
-      //       'localField': 'importance',
-      //       'foreignField': '_id',
-      //       'as': 'priority_info'
-      //     }
-      //   }, {
-      //     '$unwind': {
-      //       'path': '$location_info'
-      //     }
-      //   }, {
-      //     '$unwind': {
-      //       'path': '$status_info'
-      //     }
-      //   }, {
-      //     '$unwind': {
-      //       'path': '$priority_info'
-      //     }
-      //   }, {
-      //     '$addFields': {
-      //       'city': '$location_info.city',
-      //       'street': '$location_info.street',
-      //       'importance': '$priority_info.description',
-      //       'status': '$status_info.description'
-      //     }
-      //   }, {
-      //     '$project': {
-      //       'location': 0,
-      //       'location_info': 0,
-      //       'status_info': 0,
-      //       'priority_info': 0
-      //     }
-      //   }
-      // ]
+      const ourPipeline = [
+        {
+          '$lookup': {
+            'from': 'Location',
+            'localField': 'Location',
+            'foreignField': '_id',
+            'as': 'location_info'
+          }
+        }, {
+          '$lookup': {
+            'from': 'locatio_info',
+            'localField': 'location_info.cityCode',
+            'foreignField': '_id',
+            'as': 'location_info.city_info'
+          }
+        }, {
+          '$lookup': {
+            'from': 'location_info',
+            'localField': 'location_info.streetCode',
+            'foreignField': '_id',
+            'as': 'location_info.street_info'
+          }
+        }, {
+          '$lookup': {
+            'from': 'Statuses',
+            'localField': 'statusCode',
+            'foreignField': '_id',
+            'as': 'status_info'
+          }
+        }, {
+          '$lookup': {
+            'from': 'Priorities',
+            'localField': 'priorityCode',
+            'foreignField': '_id',
+            'as': 'priority_info'
+          }
+        }, {
+          '$unwind': {
+            'path': '$location_info'
+          }
+        }, {
+          '$unwind': {
+            'path': '$location_info.city_info'
+          }
+        }, {
+          '$unwind': {
+            'path': 'location_info.street_info'
+          }
+        }, {
+          '$unwind': {
+            'path': '$status_info'
+          }
+        }, {
+          '$unwind': {
+            'path': '$priority_info'
+          }
+        }, {
+          '$addFields': {
+            'city': '$location_info.city',
+            'street': '$location_info.street',
+            'importance': '$priority_info.description',
+            'status': '$status_info.description'
+          }
+        }, {
+          '$project': {
+            'location': 0,
+            'location_info': 0,
+            'status_info': 0,
+            'priority_info': 0
+          }
+        }
+      ]
       let query = {};
-      // if (filters.location) {
-      //   query.location = parseInt(filters.location);
-      // }
-      // if (filters.status) {
-      //   query.status = filters.status;
-      // }
-      // if (filters.importance) {
-      //   query.importance = filters.importance;
-      // }
-      // console.log(query);
-      // if (Object.keys(query).length > 0) {
-      //   ourPipeline.unshift({ $match: query });
-      // } else {
-      //   ourPipeline.push({ $match: { status: "waiting" } }, {$match: query });
+      if (filters.locationCode) {
+        query.locationCode = parseInt(filters.locationCode);
+      }
+      if (filters.statusCode) {
+        query.statusCode = filters.statusCode;
+      }
+      if (filters.priorityCode) {
+        query.priorityCode = filters.priorityCode;
+      }
+      console.log(query);
+      if (Object.keys(query).length > 0) {
+        ourPipeline.unshift({ $match: query });
+      } else {
+        ourPipeline.push({ $match: { status: "waiting" } }, { $match: query });
 
-      // }
-      //const results = await this.model.aggregate(ourPipeline).exec();
-      
+      }
+      const results = await this.model.aggregate(ourPipeline).exec();
+
       console.log(results);
       return results;
     } catch (error) {
@@ -91,7 +112,7 @@ class HelpRequestRepo {
       throw error;
     }
   }
- 
+
   async getById(id) {
     try {
       let item = await this.model.findById(Number(id));
