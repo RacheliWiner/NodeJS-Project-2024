@@ -6,16 +6,7 @@ class BaseController {
         this.service = service;
         autoBind(this);
     }
-    // async getAll(req, res, next) {
-    //     try {
-    //         const filters = req.query;
-    //         const response = await this.service.getAll(filters);
-    //         return res.status(200).json(response);
-    //     }
-    //     catch (e) {
-    //         next(e);
-    //     }
-    // }
+
     async getAll(req, res, next) {
         try {
             const filters = req.query;
@@ -26,19 +17,17 @@ class BaseController {
             next(e);
         }
     }
-    async getById(req, res, next) {
-        const { id } = req.params;
+    async get(req, res, next) {
+      
         try {
-            const response = await this.service.getById(id);
+            const  id  = req.params._id;
+            const response = await this.service.get(id);
             return res.status(200).json(response);
-
         }
         catch (e) {
             next(e);
         }
     }
-
-
 
 }
 export default BaseController;

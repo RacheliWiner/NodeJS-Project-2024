@@ -16,6 +16,18 @@ class HelpRequestController extends BaseController {
         }
     }
 
+    // async get(req, res, next) {
+      
+    //     try {
+    //         const  id  = req.params._id;
+    //         const response = await this.service.get(id);
+    //         return res.status(200).json(response);
+    //     }
+    //     catch (e) {
+    //         next(e);
+    //     }
+    // }
+
     async update(req, res, next) {
         const { id } = req.params;
         try {

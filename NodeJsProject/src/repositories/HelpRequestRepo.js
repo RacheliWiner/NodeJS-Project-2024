@@ -112,20 +112,23 @@ class HelpRequestRepo {
     }
   }
 
-  async getById(id) {
+  async get(id) {
     try {
-      let item = await this.model.findById(Number(id));
-      if (!item) {
-        let error = new Error('There is no data for this request');
-        error.code = 404;
-        throw error;
-      }
-      return item;
+        let item = await this.model.findById(id)
+        console.log(item);
+
+        if (!item) {
+            let error = new Error('Item not found');
+            error.statusCode = 404;
+            throw error;
+        }
+
+        return item;
+    } catch (errors) {
+        throw errors;
     }
-    catch (errors) {
-      throw (errors);
-    }
-  }
+}
+
   
   async update(id, item) {
     try {

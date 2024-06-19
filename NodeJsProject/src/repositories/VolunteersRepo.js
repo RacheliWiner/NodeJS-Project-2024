@@ -11,7 +11,7 @@ class VolunteersRepo {
         return this.model.find({}).exec();
     }
 
-    async getById(id) {
+    async get(id) {
         try {
             let item = await this.model.findById(id);
             if (!item) {
