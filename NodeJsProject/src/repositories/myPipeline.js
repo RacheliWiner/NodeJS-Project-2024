@@ -13,7 +13,7 @@ export default function myPipeline(query) {
       }
     }, {
       '$lookup': {
-        'from': 'locatio_info',
+        'from': 'Cities',
         'localField': 'location_info.cityCode',
         'foreignField': '_id',
         'as': 'location_info.city_info'
@@ -24,7 +24,7 @@ export default function myPipeline(query) {
       }
     }, {
       '$lookup': {
-        'from': 'location_info',
+        'from': 'Streets',
         'localField': 'location_info.streetCode',
         'foreignField': '_id',
         'as': 'location_info.street_info'
@@ -60,8 +60,8 @@ export default function myPipeline(query) {
         'city': '$location_info.city_info.name',
         'street': '$location_info.street_info.name',
         'number': '$location_info.number',
-        'priority': '$priority_info.description',
-        'status': '$status_info.description'
+        'priority': '$priority_info.name',
+        'status': '$status_info.name'
       }
     }, {
       '$project': {

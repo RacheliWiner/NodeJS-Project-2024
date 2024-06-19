@@ -12,7 +12,7 @@ class HelpRequestRepo {
 
 
 
-  async getAll(filters) {
+  async getAll(filters = {}) {
     try {
       const ourPipeline = [
         {
@@ -22,21 +22,33 @@ class HelpRequestRepo {
             'foreignField': '_id',
             'as': 'location_info'
           }
-        }, {
+        },{
+          '$unwind': {
+            'path': '$location_info'
+          }
+        } ,{
           '$lookup': {
-            'from': 'locatio_info',
+            'from': 'Cities',
             'localField': 'location_info.cityCode',
             'foreignField': '_id',
             'as': 'location_info.city_info'
           }
         }, {
+          '$unwind': {
+            'path': '$location_info.city_info'
+          }
+        },{
           '$lookup': {
-            'from': 'location_info',
+            'from': 'Streets',
             'localField': 'location_info.streetCode',
             'foreignField': '_id',
             'as': 'location_info.street_info'
           }
         }, {
+          '$unwind': {
+            'path': '$location_info.street_info'
+          }
+        },{
           '$lookup': {
             'from': 'Statuses',
             'localField': 'statusCode',
@@ -44,38 +56,27 @@ class HelpRequestRepo {
             'as': 'status_info'
           }
         }, {
+          '$unwind': {
+            'path': '$status_info'
+          }
+        },{
           '$lookup': {
             'from': 'Priorities',
             'localField': 'priorityCode',
             'foreignField': '_id',
             'as': 'priority_info'
           }
-        }, {
-          '$unwind': {
-            'path': '$location_info'
-          }
-        }, {
-          '$unwind': {
-            'path': '$location_info.city_info'
-          }
-        }, {
-          '$unwind': {
-            'path': 'location_info.street_info'
-          }
-        }, {
-          '$unwind': {
-            'path': '$status_info'
-          }
-        }, {
+        },  {
           '$unwind': {
             'path': '$priority_info'
           }
         }, {
           '$addFields': {
-            'city': '$location_info.city',
-            'street': '$location_info.street',
-            'importance': '$priority_info.description',
-            'status': '$status_info.description'
+            'city': '$location_info.city_info.name',
+            'street': '$location_info.street_info.name',
+            'number': '$location_info.number',
+            'importance': '$priority_info.name',
+            'status': '$status_info.name'
           }
         }, {
           '$project': {
