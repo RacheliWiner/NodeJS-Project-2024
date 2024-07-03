@@ -1,14 +1,33 @@
-# Specify JavaScript as the main language
+# Specify JavaScript and related languages as the main languages
 *.js linguist-language=JavaScript
 *.jsx linguist-language=JavaScript
-
-# Specify other Node.js related languages if necessary
 *.ts linguist-language=TypeScript
 *.tsx linguist-language=TypeScript
 *.json linguist-language=JSON
 
-# Exclude other languages that might affect language detection
+# Exclude other language files to avoid confusion
 *.cpp linguist-vendored
 *.h linguist-vendored
 *.cmake linguist-vendored
 CMakeLists.txt linguist-vendored
+*.py linguist-vendored
+*.java linguist-vendored
+*.cs linguist-vendored
+
+# Optionally exclude documentation or configuration files
+*.md linguist-documentation
+*.yml linguist-vendored
+*.yaml linguist-vendored
+*.toml linguist-vendored
+*.ini linguist-vendored
+
+# Exclude large binary files
+*.png linguist-vendored
+*.jpg linguist-vendored
+*.gif linguist-vendored
+*.svg linguist-vendored
+*.pdf linguist-vendored
+
+# Mark specific folders as vendored if they contain third-party code
+node_modules/* linguist-vendored
+vendor/* linguist-vendored
