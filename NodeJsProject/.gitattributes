@@ -1,0 +1,14 @@
+# Specify JavaScript as the main language
+*.js linguist-language=JavaScript
+*.jsx linguist-language=JavaScript
+
+# Specify other Node.js related languages if necessary
+*.ts linguist-language=TypeScript
+*.tsx linguist-language=TypeScript
+*.json linguist-language=JSON
+
+# Exclude other languages that might affect language detection
+*.cpp linguist-vendored
+*.h linguist-vendored
+*.cmake linguist-vendored
+CMakeLists.txt linguist-vendored
