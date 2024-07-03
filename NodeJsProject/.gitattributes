@@ -5,7 +5,18 @@
 *.tsx linguist-language=TypeScript
 *.json linguist-language=JSON
 
-# Exclude other language files to avoid confusion
+# Mark key Node.js files
+package.json linguist-language=JavaScript
+package-lock.json linguist-language=JSON
+yarn.lock linguist-language=JSON
+
+# Mark common config files for Node.js
+*.babelrc linguist-language=JavaScript
+*.eslintrc.js linguist-language=JavaScript
+*.prettierrc linguist-language=JSON
+*.env linguist-language=JavaScript
+
+# Exclude other languages
 *.cpp linguist-vendored
 *.h linguist-vendored
 *.cmake linguist-vendored
