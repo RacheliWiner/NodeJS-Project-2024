@@ -5,18 +5,22 @@
 *.tsx linguist-language=TypeScript
 *.json linguist-language=JSON
 
-# Mark key Node.js files
+# Mark key Node.js files and folders
 package.json linguist-language=JavaScript
 package-lock.json linguist-language=JSON
 yarn.lock linguist-language=JSON
+*.env linguist-language=JavaScript
+*.nvmrc linguist-language=JavaScript
 
-# Mark common config files for Node.js
+# Common configuration files in Node.js projects
 *.babelrc linguist-language=JavaScript
 *.eslintrc.js linguist-language=JavaScript
+*.eslintrc.json linguist-language=JSON
 *.prettierrc linguist-language=JSON
-*.env linguist-language=JavaScript
+*.eslintignore linguist-language=JavaScript
+*.prettierignore linguist-language=JavaScript
 
-# Exclude other languages
+# Exclude other languages to reduce noise
 *.cpp linguist-vendored
 *.h linguist-vendored
 *.cmake linguist-vendored
